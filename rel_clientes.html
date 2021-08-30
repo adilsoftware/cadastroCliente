@@ -1,0 +1,95 @@
+<?php
+$conexao=mysqli_connect('localhost', 'root', '', 'bdteste');
+
+?>
+
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="menu.css">	
+	</head>
+
+	<body>
+
+	<nav class="menu">
+			<ul>
+				<li><a href="#">ARQUIVO</a>
+					<ul>
+						<li><a href="#">CADASTRO</a>
+							<ul>
+								<li><a href="clientes.html">CLIENTES</a></li>
+								<li><a href="fornecedor.html">FORNECEDOR</a></li>
+								<li><a href="produto.html">PRODUTOS</a></li>
+							</ul>
+						</li>
+						<li><a href="pesquisar.html">PESQUISAR</a>
+							
+						</li>
+						<li><a href="imprimir.html">IMPRIMIR</a></li>
+						<li><a href="index.html">FECHAR</a></li>
+					</ul>
+				</li>
+				
+				<li><a href="#">RELATORIO</a>
+					<ul>
+						<li><a href="rel_clientes.html">CLIENTES</a></li>
+						<li><a href="rel_fornecedor.html">FORNECEDOR</a></li>
+						<li><a href="rel_produtos.html">PRODUTOS</a></li>
+					</ul>
+				</li>
+				
+				<li><a href="configuracao.html">CONFIGURAÇÃO</a>
+				</li>
+				
+				<li><a href="ajuda.html">AJUDA</a></li>
+			</ul>
+		</nav>
+		
+		<div class="static"></div>
+		<div class="fundo"></div>
+
+
+
+
+<table width="90%" border=0 bgcolor="#e6f2ff" align=center>
+<tr><td>
+<tr><td>
+<tr bgcolor="#6da3f9"><td align=CENTER><b>RELATÓRIO DE CLIENTES</b></td></tr>
+<tr><td>
+<!--inicio da tabela-->
+<table width="90%" border=0 bordercolor="red" bgcolor="#e6f2ff" align=center>
+<tr><td colspan=5>
+</td></tr>
+<tr bgcolor="#6da3f9" >
+	<td align=center><b>ID</b></td>
+	<td align=center><b>Clientes</td>
+	<td align=center><b>Endereço</td>
+	<td align=center><b>fone</td>
+</tr>
+
+<?php
+$sql="select * from tbclientes";
+$result=mysqli_query($conexao,$sql);
+
+while($mostrar=mysqli_fetch_array($result)){
+	?>
+
+	<tr>
+	<td><?php echo $mostrar['idclientes'] ?></td>
+	<td><?php echo $mostrar['nome'] ?></td>
+	<td><?php echo $mostrar['endereco'] ?></td>
+	<td><?php echo $mostrar['email'] ?></td>
+    </tr>
+<?php
+}
+
+?>
+
+
+</table>
+</table>
+
+
+		<div class="rodape">Todos os Direitos reservados a AdilSoftware</div>	
+
+	</body>
+</html>
